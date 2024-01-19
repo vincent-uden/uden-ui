@@ -136,7 +136,7 @@ export function HuePicker(props: HuePickerProps) {
         class="w-2 h-full absolute rounded-full border-2 border-white pointer-events-none drop-shadow-lg top-0"
         style={{
           left: `${width * color().hue}px`,
-          'background-color': fullySaturated(color().hue, width),
+          'background-color': fullySaturated(color().hue),
           transform: `translate(-4px)`,
         }}
       />
