@@ -22,7 +22,7 @@ function App() {
           <HuePicker />
         </ColorPickerBase>
         <div class="h-2" />
-        <div class="w-32 h-32 rounded-xl" style={{"background-color": color()}} />
+        <div class="w-32 h-32 rounded-xl" style={{ 'background-color': color() }} />
       </header>
     </div>
   )

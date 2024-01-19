@@ -47,7 +47,7 @@ export function ColorPickerBase(props: ColorPickerBaseProps) {
   if (props.value != undefined) {
     const color = new ColorTranslator(props.value)
     const hsl = color.HSLObject
-    const hue = (hsl.H / 360)
+    const hue = hsl.H / 360
     hsl.S /= 100
     hsl.L /= 100
     const V = hsl.L + hsl.S * Math.min(hsl.L, 1 - hsl.L)
@@ -61,23 +61,23 @@ export function ColorPickerBase(props: ColorPickerBaseProps) {
         hue: hue,
         saturation: Sv,
         value: V,
-      };
-    });
+      }
+    })
   }
 
-  const translator = new ColorTranslator("#000");
+  const translator = new ColorTranslator('#000')
 
   createEffect(() => {
     if (props.out != undefined) {
-      translator.setH(color().hue * 360);
-      const L = color().value * (1 - color().saturation / 2);
-      translator.setL(L * 100);
+      translator.setH(color().hue * 360)
+      const L = color().value * (1 - color().saturation / 2)
+      translator.setL(L * 100)
       if (L == 0 || L == 1) {
-        translator.setS(0);
+        translator.setS(0)
       } else {
-        translator.setS((color().value - L)/(Math.min(L, 1-L)) * 100);
+        translator.setS(((color().value - L) / Math.min(L, 1 - L)) * 100)
       }
-      props.out(translator.HEX);
+      props.out(translator.HEX)
     }
   })
 
@@ -105,7 +105,7 @@ export function HuePicker(props: HuePickerProps) {
   let width = props.width ?? 200
 
   return (
-    <div class={twMerge("relative", props.class)}>
+    <div class={twMerge('relative', props.class)}>
       <div
         class="h-4 rounded border border-zinc-400"
         style={{
@@ -120,7 +120,7 @@ export function HuePicker(props: HuePickerProps) {
           })
           const rect = hueRef.getBoundingClientRect()
           setColor(c => {
-              return { ...c, hue: (e.x - rect.left) / width }
+            return { ...c, hue: (e.x - rect.left) / width }
           })
         }}
         onMouseMove={e => {
@@ -186,7 +186,7 @@ export function SaturationValuePicker(props: SaturationValuePickerProps) {
   })
 
   return (
-    <div class={twMerge("relative", props.class)}>
+    <div class={twMerge('relative', props.class)}>
       <canvas
         class="rounded border border-zinc-400"
         width={width}
