@@ -1,4 +1,4 @@
-import { Accessor, Component, createComputed, createSignal } from 'solid-js'
+import { Accessor, Component, createComputed, createSignal } from 'solid-js';
 
 export function createHello(): [Accessor<string>, (to: string) => void] {
   const [hello, setHello] = createSignal('Hello World!')
@@ -24,3 +24,5 @@ export const Hello: Component<{ to?: string }> = props => {
     </>
   )
 }
+
+export * from './ColorPicker';

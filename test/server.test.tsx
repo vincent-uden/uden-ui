@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { isServer, renderToString } from 'solid-js/web'
-import { Hello, createHello } from '../src'
+import { ColorPickerBase, Hello, HuePicker, SaturationValuePicker, createHello } from '../src'
 
 describe('environment', () => {
   it('runs on server', () => {
@@ -26,5 +26,17 @@ describe('Hello', () => {
   it('renders a hello component', () => {
     const string = renderToString(() => <Hello />)
     expect(string).toBe('<div>Hello World!</div>')
+  })
+})
+
+describe('Color picker', () => {
+  it('renders a color picker component', () => {
+    const string = renderToString(() => (
+        <ColorPickerBase>
+          <SaturationValuePicker />
+          <HuePicker />
+        </ColorPickerBase>
+    ))
+    expect(string).toBeTruthy()
   })
 })
