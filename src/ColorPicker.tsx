@@ -11,6 +11,8 @@ import {
 } from 'solid-js'
 import { twMerge } from 'tailwind-merge'
 
+import "./globals.css"
+
 function fullySaturated(hue: number) {
   return `hsl(${hue * 360},100%,50%)`
 }
