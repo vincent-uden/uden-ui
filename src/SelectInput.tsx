@@ -1,6 +1,6 @@
 import { createEffect, createSignal, For, onCleanup, onMount, Setter, Show } from "solid-js";
 import { twMerge } from "tailwind-merge";
-import { FaSolidChevronDown } from 'solid-icons/fa'
+import { FaSolidChevronDown } from "solid-icons/fa";
 
 type SelectProps<T> = {
   id?: string;
@@ -25,9 +25,9 @@ export function SelectInput<T>(props: SelectProps<T>) {
   });
 
   function dismiss() {
-      if (selecting()) {
-        setSelecting(false);
-      }
+    if (selecting()) {
+      setSelecting(false);
+    }
   }
 
   onMount(() => {
@@ -48,8 +48,8 @@ export function SelectInput<T>(props: SelectProps<T>) {
       id={props.id ?? ""}
     >
       <p
-      class="grow -translate-y-[1px] select-none"
-        onMouseUp={(e) => {
+        class="grow -translate-y-[1px] select-none"
+        onMouseUp={e => {
           e.stopPropagation();
           setSelecting(true);
         }}
@@ -59,12 +59,14 @@ export function SelectInput<T>(props: SelectProps<T>) {
       <FaSolidChevronDown class="translate-y-[1px] text-primary" />
 
       <Show when={selecting()}>
-        <div class={`absolute z-10 border-2 border-primary -right-[2px] -left-[2px] -top-[2px] rounded shadow-lg flex flex-col bg-white`}>
+        <div
+          class={`absolute z-10 border-2 border-primary -right-[2px] -left-[2px] -top-[2px] rounded shadow-lg flex flex-col bg-white`}
+        >
           <For each={props.options}>
             {(opt, i) => (
               <div
                 class="select-none hover:bg-primary/10 px-1 py-[3px] transition-colors"
-                onMouseUp={(e) => {
+                onMouseUp={e => {
                   e.stopPropagation();
                   setSelectedOption("" + props?.options?.at(i()) ?? "");
                   if (props.onChange != undefined) {
