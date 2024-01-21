@@ -63,7 +63,8 @@ export function SlideInput(props: SlideProps) {
       >
         <p>
           {nanFallback(
-            (pos() / trackRef!.getBoundingClientRect().width) * (props.to - props.from) + props.from,
+            (pos() / trackRef!.getBoundingClientRect().width) * (props.to - props.from) +
+              props.from,
           )}
         </p>
       </div>
