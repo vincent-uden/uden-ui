@@ -1,17 +1,17 @@
 {
-  "name": "uden_ui",
-  "version": "0.0.2",
+  "name": "uden-ui",
+  "version": "0.1.0",
   "description": "A tailwind based component lib for Solid JS",
   "license": "MIT",
-  "author": "Vincent Uden",
+  "author": "vincent-uden",
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vincent-uden/uden_ui.git"
+    "url": "git+https://github.com/vincent-uden/uden-ui.git"
   },
-  "homepage": "https://github.com/vincent-uden/uden_ui#readme",
+  "homepage": "https://github.com/vincent-uden/uden-ui#readme",
   "bugs": {
-    "url": "https://github.com/vincent-uden/uden_ui/issues"
+    "url": "https://github.com/vincent-uden/uden-ui/issues"
   },
   "files": [
     "dist"
@@ -87,7 +87,9 @@
     "pnpm": ">=8.6.0"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.0.16",
     "colortranslator": "^4.1.0",
+    "solid-icons": "^1.1.0",
     "tailwind-merge": "^2.2.0"
   }
 }
