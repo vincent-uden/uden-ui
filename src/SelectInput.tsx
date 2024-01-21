@@ -68,9 +68,9 @@ export function SelectInput<T>(props: SelectProps<T>) {
                 class="select-none hover:bg-primary/10 px-1 py-[3px] transition-colors"
                 onMouseUp={e => {
                   e.stopPropagation();
-                  setSelectedOption("" + props?.options?.at(i()) ?? "");
+                  setSelectedOption("" + (props?.options?.at(i()) ?? ""));
                   if (props.onChange != undefined) {
-                    props.onChange(props!!.options!![i()]);
+                    props.onChange(props!!.options!![i()]!!);
                   }
                 }}
               >

@@ -10,10 +10,10 @@ type SlideProps = {
 export function SlideInput(props: SlideProps) {
   const [pos, setPos] = createSignal<number>(0);
 
-  let trackRef: HTMLDivElement;
+  let trackRef: HTMLDivElement | undefined;
 
   function moveSlider(e: MouseEvent) {
-    const clientRect = trackRef.getBoundingClientRect();
+    const clientRect = trackRef!.getBoundingClientRect();
     setPos(Math.max(Math.min(e.clientX - clientRect.x, clientRect.width), 0));
   }
 
@@ -21,7 +21,7 @@ export function SlideInput(props: SlideProps) {
     document.removeEventListener("mousemove", moveSlider);
     document.removeEventListener("mouseup", release);
 
-    const clientRect = trackRef.getBoundingClientRect();
+    const clientRect = trackRef!.getBoundingClientRect();
     props.out((pos() / clientRect.width) * (props.to - props.from) + props.from);
   }
 
@@ -63,7 +63,7 @@ export function SlideInput(props: SlideProps) {
       >
         <p>
           {nanFallback(
-            (pos() / trackRef.getBoundingClientRect().width) * (props.to - props.from) + props.from,
+            (pos() / trackRef!.getBoundingClientRect().width) * (props.to - props.from) + props.from,
           )}
         </p>
       </div>
