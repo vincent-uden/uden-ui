@@ -37,7 +37,7 @@ function App() {
             <HuePicker />
           </ColorPickerBase>
           <div class="h-2" />
-          <div class="w-32 h-32 mx-auto rounded-xl" style={{ "background-color": color() }} />
+          <div class="w-full h-8 mx-auto rounded-lg" style={{ "background-color": color() }} />
         </Panel>
         <Panel>
           <h2 class="text-2xl text-zinc-700 mb-4">Input Components</h2>

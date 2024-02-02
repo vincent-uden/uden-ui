@@ -31,12 +31,16 @@ export function SelectInput<T>(props: SelectProps<T>) {
   }
 
   onMount(() => {
-    document.body.removeEventListener("mouseup", dismiss, false);
-    document.body.addEventListener("mouseup", dismiss, false);
+    if (typeof window !== "undefined") {
+      document.body.removeEventListener("mouseup", dismiss, false);
+      document.body.addEventListener("mouseup", dismiss, false);
+    }
   });
 
   onCleanup(() => {
-    document.body.removeEventListener("mouseup", dismiss, false);
+    if (typeof window !== "undefined") {
+      document.body.removeEventListener("mouseup", dismiss, false);
+    }
   });
 
   return (

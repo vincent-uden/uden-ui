@@ -16,7 +16,7 @@ export function TextInput(props: TextInputProps) {
   return (
     <input
       class={twMerge(
-        "border-gray-200 border-2 rounded px-1 focus:border-primary outline-none transition-colors min-w-0",
+        "border-gray-200 border-2 rounded px-2 focus:border-primary outline-none transition-colors min-w-0",
         props.class,
       )}
       id={props.id ?? ""}

@@ -1,10 +1,13 @@
 import { createSignal, Setter } from "solid-js";
+import { twMerge } from "tailwind-merge";
 
 type SlideProps = {
   from: number;
   to: number;
   out: Setter<number>;
   value: number;
+  trackClass?: string;
+  thumbClass?: string;
 };
 
 export function SlideInput(props: SlideProps) {
@@ -52,9 +55,9 @@ export function SlideInput(props: SlideProps) {
         }
       }}
     >
-      <div class="h-1 bg-gray-200 rounded-full select-none" ref={trackRef} />
+      <div class={twMerge("h-1 bg-gray-200 rounded-full select-none", props.trackClass)} ref={trackRef} />
       <div
-        class="absolute bg-primary w-4 h-4 top-1/2 rounded-full shadow hover:bg-primary-active select-none"
+        class={twMerge("absolute bg-primary w-4 h-4 top-1/2 rounded-full shadow hover:bg-primary-active select-none", props.thumbClass)}
         style={{ transform: `translate(calc(${pos()}px - 0.5rem), -50%)` }}
       />
       <div
