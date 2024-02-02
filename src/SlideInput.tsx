@@ -55,9 +55,15 @@ export function SlideInput(props: SlideProps) {
         }
       }}
     >
-      <div class={twMerge("h-1 bg-gray-200 rounded-full select-none", props.trackClass)} ref={trackRef} />
       <div
-        class={twMerge("absolute bg-primary w-4 h-4 top-1/2 rounded-full shadow hover:bg-primary-active select-none", props.thumbClass)}
+        class={twMerge("h-1 bg-gray-200 rounded-full select-none", props.trackClass)}
+        ref={trackRef}
+      />
+      <div
+        class={twMerge(
+          "absolute bg-primary w-4 h-4 top-1/2 rounded-full shadow hover:bg-primary-active select-none",
+          props.thumbClass,
+        )}
         style={{ transform: `translate(calc(${pos()}px - 0.5rem), -50%)` }}
       />
       <div
